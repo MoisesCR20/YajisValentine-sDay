@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi San Valentín? 💕</title>
+    <title>¿Quieres ser mi Valentina? 💕</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -20,8 +24,10 @@
             background: linear-gradient(135deg, #1a0933 0%, #2d1b4e 25%, #1a0933 50%, #0f0820 75%, #1a0933 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
+            padding: 20px 0;
         }
 
         @keyframes gradientShift {
@@ -282,15 +288,17 @@
     <!-- Contenedor principal -->
     <div class="container">
         <div id="pregunta">
-            <h1>💝 Mi Vida 💝</h1>
+            <h1>💝 Mi Amor 💝</h1>
             <p class="question">
-                No sabes lo contento que me siento todos los dias al<br>
-                despertar sabiendo que tengo a la persona mas increible<br>
-                y linda del universo a mi lado.<br>
-                Desde que te conoci haz hecho que cada dia sea especial, y<br>
-                simplemente las palabras no me alcanzan para expresar todo<br>
-                mi amor y lo mucho que te quiero mi niña hermosa.<br><br>
-                Y hay una pregunta que quiero hacerte...<br><br>
+                Mi vida, no sabes lo contento que me siento<br>
+                todos los dias al despertar sabiendo que<br>
+                tengo a la persona mas increible y linda del<br>
+                universo a mi lado.<br>
+                Desde que te conoci haz hecho que cada dia sea<br>
+                especial, y simplemente las palabras no me<br>
+                alcanzan para expresar todo mi amor <br>
+                y lo mucho que te quiero.<br><br>
+                Y por eso hay una pregunta que quiero hacerte...<br><br>
                 <strong style="font-size: 1.2em; color: #daa520;">¿Quieres ser mi San Valentín 👉👈?</strong>
             </p>
             <div class="buttons-container">
@@ -329,7 +337,7 @@
                 placeholder.textContent = emojis[Math.floor(Math.random() * emojis.length)];
                 
                 // Aquí puedes reemplazar el placeholder con tus fotos reales
-                placeholder.innerHTML = `<img src="fotos/foto${i+1}.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:5px;">`;
+                // placeholder.innerHTML = `<img src="tu-foto-${i+1}.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:5px;">`;
                 
                 frame.appendChild(placeholder);
                 gallery.appendChild(frame);
@@ -398,8 +406,23 @@
 
         // Botón "Sí"
         btnSi.addEventListener('click', () => {
-            document.getElementById('pregunta').style.display = 'none';
-            document.getElementById('mensajeFinal').style.display = 'block';
+            // Hacer scroll suave hacia arriba primero
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Esperar un poco y luego cambiar el contenido
+            setTimeout(() => {
+                document.getElementById('pregunta').style.display = 'none';
+                document.getElementById('mensajeFinal').style.display = 'block';
+                
+                // Scroll suave hacia el mensaje final
+                document.getElementById('mensajeFinal').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 300);
             
             // Crear explosión de corazones
             for (let i = 0; i < 30; i++) {
