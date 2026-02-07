@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi Valentina? 💕</title>
+    <title>¿Quieres ser mi San Valentín? 💕</title>
     <style>
         * {
             margin: 0;
@@ -262,18 +262,72 @@
 
         /* Responsive */
         @media (max-width: 600px) {
+            body {
+                padding: 10px 0;
+            }
+            
             .container {
-                padding: 40px 30px;
+                padding: 30px 25px;
+                max-width: 90%;
             }
+            
             h1 {
-                font-size: 2em;
+                font-size: 1.6em;
+                margin-bottom: 20px;
             }
+            
             .question {
-                font-size: 1.2em;
+                font-size: 0.95em;
+                margin-bottom: 25px;
+                line-height: 1.5;
             }
+            
+            .question br {
+                display: none;
+            }
+            
+            .buttons-container {
+                height: 140px;
+                margin-top: 20px;
+            }
+            
             button {
-                font-size: 1em;
+                font-size: 0.95em;
                 padding: 12px 30px;
+            }
+            
+            #btnNo {
+                top: 70px;
+            }
+            
+            .mensaje-final h2 {
+                font-size: 1.6em;
+                margin-bottom: 15px;
+            }
+            
+            .mensaje-final p {
+                font-size: 0.95em;
+                line-height: 1.6;
+            }
+            
+            .mensaje-final p br {
+                display: none;
+            }
+            
+            .emoji {
+                font-size: 1.3em;
+            }
+            
+            /* Hacer la galería de fotos más visible en móvil */
+            .photo-gallery {
+                opacity: 0.2;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .photo-placeholder {
+                font-size: 2em;
             }
         }
     </style>
@@ -288,17 +342,15 @@
     <!-- Contenedor principal -->
     <div class="container">
         <div id="pregunta">
-            <h1>💝 Mi Amor 💝</h1>
+            <h1>💝 Mi Vida 💝</h1>
             <p class="question">
-                Mi vida, no sabes lo contento que me siento<br>
-                todos los dias al despertar sabiendo que<br>
-                tengo a la persona mas increible y linda del<br>
-                universo a mi lado.<br>
-                Desde que te conoci haz hecho que cada dia sea<br>
-                especial, y simplemente las palabras no me<br>
-                alcanzan para expresar todo mi amor <br>
-                y lo mucho que te quiero.<br><br>
-                Y por eso hay una pregunta que quiero hacerte...<br><br>
+                No sabes lo contento que me siento todos los dias al<br>
+                despertar sabiendo que tengo a la persona mas increible<br>
+                y linda del universo a mi lado.<br>
+                Desde que te conoci haz hecho que cada dia sea especial, y<br>
+                simplemente las palabras no me alcanzan para expresar todo<br>
+                mi amor y lo mucho que te quiero mi niña hermosa.<br><br>
+                Y hay una pregunta que quiero hacerte...<br><br>
                 <strong style="font-size: 1.2em; color: #daa520;">¿Quieres ser mi San Valentín 👉👈?</strong>
             </p>
             <div class="buttons-container">
@@ -406,23 +458,8 @@
 
         // Botón "Sí"
         btnSi.addEventListener('click', () => {
-            // Hacer scroll suave hacia arriba primero
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            
-            // Esperar un poco y luego cambiar el contenido
-            setTimeout(() => {
-                document.getElementById('pregunta').style.display = 'none';
-                document.getElementById('mensajeFinal').style.display = 'block';
-                
-                // Scroll suave hacia el mensaje final
-                document.getElementById('mensajeFinal').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            }, 300);
+            document.getElementById('pregunta').style.display = 'none';
+            document.getElementById('mensajeFinal').style.display = 'block';
             
             // Crear explosión de corazones
             for (let i = 0; i < 30; i++) {
@@ -445,4 +482,3 @@
     </script>
 </body>
 </html>
-
